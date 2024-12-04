@@ -47,3 +47,15 @@ img {
     width: 80px;
     height: 80px;
 }
+
+table {
+    width: 400px;
+    border-collapse: collapse; /* Ensures borders between cells are merged */
+}
+table, th, td {
+    border: 1px solid black; /* Adds a border to the table, header, and data cells */
+}
+th, td {
+    padding: 8px; /* Adds padding inside each cell */
+    text-align: left; /* Aligns text to the left */
+}
