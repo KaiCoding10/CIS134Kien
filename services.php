@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="CSS/sharedStyle.css">
+<?php require "inc_welcome.php"?>
+<?php include "inc_navigation.php" ?>
 <?php
 echo "<h1>My Services</h1>";
 $servicesArray = [
@@ -20,57 +22,20 @@ $servicesArray = [
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td><?php echo $servicesArray[0][0]?></td>
-        <td><?php echo $servicesArray[0][1]?></td>
-        <td> <?php echo $servicesArray[0][2]?></td>
-        <td><?php echo $servicesArray[0][3]?></td>
-    </tr>
-    <tr>
-        <td><?php echo $servicesArray[1][0]?></td>
-        <td><?php echo $servicesArray[1][1]?></td>
-        <td> <?php echo $servicesArray[1][2]?></td>
-        <td><?php echo $servicesArray[1][3]?></td>
-    </tr>
-    <tr>
-        <td><?php echo $servicesArray[2][0]?></td>
-        <td><?php echo $servicesArray[2][1]?></td>
-        <td> <?php echo $servicesArray[2][2]?></td>
-        <td><?php echo $servicesArray[2][3]?></td>
-    </tr>
-    <tr>
-        <td><?php echo $servicesArray[3][0]?></td>
-        <td><?php echo $servicesArray[3][1]?></td>
-        <td> <?php echo $servicesArray[3][2]?></td>
-        <td><?php echo $servicesArray[3][3]?></td>
-    </tr>
-    <tr>
-        <td><?php echo $servicesArray[3][0]?></td>
-        <td><?php echo $servicesArray[3][1]?></td>
-        <td> <?php echo $servicesArray[3][2]?></td>
-        <td><?php echo $servicesArray[3][3]?></td>
-    </tr>
+    <?php
+    // Use foreach loop to iterate through $servicesArray
+    foreach ($servicesArray as $service) {
+        echo "<tr>";
+        // use another loop to loop from each array element of the $servicesArray
+        foreach ($service as $detail) {
+            echo "<td>" . htmlspecialchars($detail) . "</td>";
+        }
+        echo "</tr>";
+    }
+    ?>
     </tbody>
 </table>
+<?php include "inc_footer.php"?>
 <br>
 
-<?php
-// Create an array to store the navigation captions
-$navCaptions = ["Home", "About Us", "Our Services", "Contact Us"];
-// Create another array named $navLinks that contain the URL information for the links
-$navLinks = ["index.php", "about.php", "services.php", "contact.php"];
-echo "<nav>";
-echo "<a href='$navLinks[0]'>";
-echo "$navCaptions[0]";
-echo "</a>";
-echo "<a href='$navLinks[1]'>";
-echo "$navCaptions[1]";
-echo "</a>";
-echo "<a href='$navLinks[2]'>";
-echo "$navCaptions[2]";
-echo "</a>";
-echo "<a href='$navLinks[3]'>";
-echo "$navCaptions[3]";
-echo "</a>";
-echo "</nav>"
-?>
+
