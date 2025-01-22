@@ -2,22 +2,33 @@
 // Initialize global variable
 $isLogin = false;
 
-// Function to search the password file
-function searchPasswordFile($username, $password) {
-    global $isLogin;
+// Function to read the password file into parallel arrays
+function readPasswordFile() {
+    $usernames = [];
+    $passwords = [];
+
     $file = fopen("password.txt", "r");
 
     if ($file) {
         while (($line = fgets($file)) !== false) {
-            $storedUsername = trim($line);
-            $storedPassword = trim(fgets($file)); // Read the next line for the password
-
-            if ($storedUsername === $username && $storedPassword === $password) {
-                $isLogin = true;
-                break;
-            }
+            $usernames[] = trim($line);          // Read username
+            $passwords[] = trim(fgets($file));   // Read corresponding password
         }
         fclose($file);
+    }
+
+    return [$usernames, $passwords];
+}
+
+// Function to search for a matching username and password
+function searchCredentials($username, $password, $usernames, $passwords) {
+    global $isLogin;
+
+    foreach ($usernames as $index => $storedUsername) {
+        if ($storedUsername === $username && $passwords[$index] === $password) {
+            $isLogin = true;
+            break;
+        }
     }
 }
 
@@ -27,7 +38,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = trim($_POST["password"] ?? "");
 
     if (!empty($username) && !empty($password)) {
-        searchPasswordFile($username, $password);
+        // Read the file into arrays
+        [$usernames, $passwords] = readPasswordFile();
+
+        // Search for matching credentials
+        searchCredentials($username, $password, $usernames, $passwords);
 
         if ($isLogin) {
             echo "Login successful!";
@@ -52,5 +67,4 @@ if (isset($_POST["create"])) {
         echo "Username and password are required to create a login.";
     }
 }
-
 ?>
