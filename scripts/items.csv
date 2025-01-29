@@ -1,0 +1,11 @@
+service_name,price,development_time,database_usage
+Web Development,1200.00,45,Yes
+App Development,5000.00,90,Yes
+SEO Optimization,900.00,30,No
+Data Analysis,3000.00,50,Yes
+Cloud Hosting,2000.00,20,Yes
+UI/UX Design,1500.00,35,No
+Digital Marketing,1800.00,40,Yes
+Database Management,2500.00,55,Yes
+E-Commerce Platform,6000.00,75,Yes
+Cybersecurity Audit,3500.00,60,Yes

@@ -1,0 +1,11 @@
+service_id,quantity,total_cost,customer_name,customer_email,shipping_address
+1,2,2400.00,John Doe,johndoe@example.com,123 Main St
+2,1,5000.00,Jane Smith,janesmith@example.com,456 Pine Rd
+3,3,2700.00,Bob Johnson,bobjohnson@example.com,789 Oak Ln
+4,1,3000.00,Alice Brown,alicebrown@example.com,321 Elm St
+5,2,4000.00,Charlie Green,charliegreen@example.com,987 Maple Ave
+6,1,1500.00,Emily White,emilywhite@example.com,654 Cedar Dr
+7,3,5400.00,David Black,davidblack@example.com,789 Pine St
+8,1,2500.00,Olivia Taylor,oliviataylor@example.com,123 Spruce Ct
+9,2,12000.00,Ethan Lee,ethanlee@example.com,567 Birch Ave
+10,1,3500.00,Mia Harris,miaharris@example.com,789 Willow Way
